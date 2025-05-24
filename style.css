@@ -980,8 +980,8 @@ footer p {
   }
 }
 
-.engine-icon svg {
+.engine-icon img {
   width: 40px;
   height: 40px;
-  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5));
+  object-fit: contain;
 }
