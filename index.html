@@ -346,14 +346,21 @@
     <!-- Add this right before </body> -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS with your User ID
-        emailjs.init('aKwa51w0joXLCCtYv'); // From EmailJS Account > API Keys
-
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
+        // Initialize EmailJS
+        emailjs.init('aKwa51w0joXLCCtYv');
+    
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Silent submission (no alerts)
             emailjs.sendForm('service_t5w9rmq', 'template_zxf9m8g', this)
-                .then(() => alert('Message sent!'))
-                .catch(err => alert('Error: ' + err));
+                .then(() => {
+                    // Success - just reset the form
+                    this.reset();
+                })
+                .catch(err => {
+                    console.error('Email failed to send:', err);
+                });
         });
     </script>
 
