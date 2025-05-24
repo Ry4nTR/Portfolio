@@ -550,6 +550,11 @@ section {
   filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
 }
 
+.project-card:hover .project-bg {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .project-overlay {
   position: absolute;
   top: 0;
