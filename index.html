@@ -315,52 +315,22 @@
                     connecting with fellow game developers. Feel free to reach out!
                 </p>
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <span>your.email@example.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <span>LinkedIn Profile</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <span>GitHub Profile</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <span>Discord: YourTag#1234</span>
-                    </div>
+                    <!-- Your existing contact items (email, LinkedIn, etc.) -->
                 </div>
 
-                <!-- Updated Contact Form (Working with FormSubmit) -->
+                <!-- EmailJS Contact Form -->
                 <div class="contact-form-container">
-                    <form class="contact-form" action="https://formsubmit.io/send/rostukterletskyy@gmail.com" method="POST">
-                        <!-- Honeypot (anti-spam) -->
-                        <input type="text" name="_honey" style="display:none">
-                        <!-- Disable captcha (optional) -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <!-- Success redirect (optional) -->
-                        <input type="hidden" name="_next" value="https://yourportfolio.com/thank-you.html">
-                        
+                    <form id="contact-form" class="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" name="from_name" required> <!-- Sender's name -->
                             <label for="name">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" name="reply_to" required> <!-- Sender's email -->
                             <label for="email">Your Email</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
+                            <textarea name="message" required></textarea> <!-- Message content -->
                             <label for="message">Your Message</label>
                         </div>
                         <button type="submit" class="submit-btn">
@@ -372,6 +342,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Add this right before </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init('YOUR_USER_ID'); // From EmailJS Account > API Keys
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(() => alert('Message sent!'))
+                .catch(err => alert('Error: ' + err));
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
