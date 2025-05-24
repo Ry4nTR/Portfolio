@@ -979,3 +979,9 @@ footer p {
       transform: translateY(0);
   }
 }
+
+.engine-icon svg {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5));
+}
