@@ -341,9 +341,16 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
+                <!-- Updated Contact Form (Working with FormSubmit) -->
                 <div class="contact-form-container">
-                    <form class="contact-form">
+                    <form class="contact-form" action="https://formsubmit.co/rostukterletskyy@gmail.com" method="POST">
+                        <!-- Honeypot (anti-spam) -->
+                        <input type="text" name="_honey" style="display:none">
+                        <!-- Disable captcha (optional) -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Success redirect (optional) -->
+                        <input type="hidden" name="_next" value="https://yourportfolio.com/thank-you.html">
+                        
                         <div class="form-group">
                             <input type="text" id="name" name="name" required>
                             <label for="name">Your Name</label>
