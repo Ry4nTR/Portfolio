@@ -551,8 +551,7 @@ section {
 }
 
 .project-card:hover .project-bg {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  display: none;
 }
 
 .project-overlay {
