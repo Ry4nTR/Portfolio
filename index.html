@@ -322,15 +322,15 @@
                 <div class="contact-form-container">
                     <form id="contact-form" class="contact-form">
                         <div class="form-group">
-                            <input type="text" name="from_name" required> <!-- Sender's name -->
+                            <input type="text" id="name" name="from_name" required>
                             <label for="name">Your Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="reply_to" required> <!-- Sender's email -->
+                            <input type="email" id="email" name="reply_to" required>
                             <label for="email">Your Email</label>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" required></textarea> <!-- Message content -->
+                            <textarea id="message" name="message" required></textarea>
                             <label for="message">Your Message</label>
                         </div>
                         <button type="submit" class="submit-btn">
@@ -347,11 +347,11 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         // Initialize EmailJS with your User ID
-        emailjs.init('YOUR_USER_ID'); // From EmailJS Account > API Keys
+        emailjs.init('aKwa51w0joXLCCtYv'); // From EmailJS Account > API Keys
 
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            emailjs.sendForm('service_t5w9rmq', 'template_zxf9m8g', this)
                 .then(() => alert('Message sent!'))
                 .catch(err => alert('Error: ' + err));
         });
