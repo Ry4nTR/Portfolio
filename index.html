@@ -348,15 +348,19 @@
     <script>
         // Initialize EmailJS
         emailjs.init('aKwa51w0joXLCCtYv');
-    
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Silent submission (no alerts)
             emailjs.sendForm('service_t5w9rmq', 'template_zxf9m8g', this)
                 .then(() => {
-                    // Success - just reset the form
                     this.reset();
+                    const confirmation = document.createElement('p');
+                    confirmation.className = 'form-confirmation visible';
+                    confirmation.textContent = '✓ Message sent successfully';
+                    this.appendChild(confirmation);
+                    setTimeout(() => confirmation.remove(), 3000);
                 })
                 .catch(err => {
                     console.error('Email failed to send:', err);
