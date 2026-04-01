@@ -252,3 +252,40 @@ const navLinks = document.querySelector('.nav-links');
 mobileMenuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
+
+// Video Reel Logic
+function initVideoReel() {
+    const videos = document.querySelectorAll('.reel-video');
+
+    if (videos.length === 0) return;
+
+    let currentIndex = 0;
+    const displayDuration = 6000; // Change this number to adjust how long each clip plays (6000 = 6 seconds)
+
+    // Play the first video immediately
+    videos[currentIndex].play().catch(err => console.log("Autoplay prevented:", err));
+
+    setInterval(() => {
+        const currentVideo = videos[currentIndex];
+
+        // Calculate the next video index
+        currentIndex = (currentIndex + 1) % videos.length;
+        const nextVideo = videos[currentIndex];
+
+        // Fade out current video
+        currentVideo.classList.remove('active');
+
+        // Pause it after the fade transition finishes (0.8s)
+        setTimeout(() => {
+            currentVideo.pause();
+        }, 800);
+
+        // Fade in and resume next video
+        nextVideo.classList.add('active');
+        nextVideo.play().catch(err => console.log("Autoplay prevented:", err));
+
+    }, displayDuration);
+}
+
+// Start the reel when the page loads
+document.addEventListener('DOMContentLoaded', initVideoReel);
