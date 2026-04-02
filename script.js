@@ -2,7 +2,7 @@
 const typingTexts = [
     "Game Programmer",
     "Unity Developer",
-    "Unreal Engine Learner",
+    "Unreal Engine Developer",
     "Problem Solver",
     "Gameplay Specialist",
     "Tech Enthusiast"
