@@ -53,11 +53,11 @@ class GameDeveloper {
 
 | Project | Description | Tech | Links |
 |---------|-------------|------|-------|
-| **Synced Rush** | Fast-paced multiplayer game — 2nd place at Game Jam | `Unity` `C#` `Netcode` | [▶ Play](https://ry4ntr.itch.io/synced-rush) · [⌨ Code](https://github.com/Ry4nTR) |
-| **Alpha ExileMet** | Sci-fi action game, team project | `Unreal Engine` `C++` `BP` | [▶ Play](https://ry4ntr.itch.io/) · [⌨ Code](https://github.com/Ry4nTR) |
-| **Stay Room** | Atmospheric horror experience | `Unity` `C#` | [▶ Play](https://ry4ntr.itch.io/) · [⌨ Code](https://github.com/Ry4nTR) |
-| **ProjectARK** | Exploration and survival game | `Unity` `C#` | [▶ Play](https://ry4ntr.itch.io/project-ark) · [⌨ Code](https://github.com/Ry4nTR/ProjectWork) |
-| **La Scatola del Nonno** | Narrative adventure set in post-war Italy | `Unity` `C#` | [▶ Play](https://ry4ntr.itch.io/la-scatola-del-nonno) · [⌨ Code](https://github.com/Ry4nTR/La-scatola-del-nonno) |
+| **Synced Rush** | Fast-paced multiplayer game — 2nd place at Game Jam | `Unity` `C#` `Netcode` | [Play](https://ry4ntr.itch.io/synced-rush) · [Code](https://github.com/Ry4nTR) |
+| **Alpha ExileMet** | Sci-fi action game, team project | `Unreal Engine` `C++` `BP` | [Play](https://ry4ntr.itch.io/) · [Code](https://github.com/Ry4nTR) |
+| **Stay Room** | Atmospheric horror experience | `Unity` `C#` | [Play](https://ry4ntr.itch.io/) · [Code](https://github.com/Ry4nTR) |
+| **ProjectARK** | Exploration and survival game | `Unity` `C#` | [Play](https://ry4ntr.itch.io/project-ark) · [Code](https://github.com/Ry4nTR/ProjectWork) |
+| **La Scatola del Nonno** | Narrative adventure set in post-war Italy | `Unity` `C#` | [Play](https://ry4ntr.itch.io/la-scatola-del-nonno) · [Code](https://github.com/Ry4nTR/La-scatola-del-nonno) |
 
 ---
 
@@ -65,9 +65,9 @@ class GameDeveloper {
 
 ## 📊 GitHub Stats
 
-<img src="https://github-readme-stats.vercel.app/api?username=Ry4nTR&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&icon_color=a855f7&text_color=e0e0e0" alt="GitHub Stats" />
+<img src="./assets/github-stats.svg" alt="GitHub Stats" />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ry4nTR&layout=compact&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&text_color=e0e0e0" alt="Top Languages" />
+<img src="./assets/top-langs.svg" alt="Top Languages" />
 
 <img src="https://streak-stats.demolab.com?user=Ry4nTR&theme=midnight-purple&hide_border=true&background=1a1a1f&stroke=a855f7&ring=c084fc&fire=c084fc&currStreakLabel=c084fc&sideLabels=e0e0e0&dates=e0e0e0" alt="GitHub Streak" />
 
