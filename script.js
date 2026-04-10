@@ -289,3 +289,45 @@ function initVideoReel() {
 
 // Start the reel when the page loads
 document.addEventListener('DOMContentLoaded', initVideoReel);
+
+// --- Project Video Modal Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const videoModal = document.getElementById('video-modal');
+    const modalVideo = document.getElementById('modal-video');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const projectImages = document.querySelectorAll('.project-image');
+
+    // Open modal when clicking a project image
+    projectImages.forEach(container => {
+        container.addEventListener('click', () => {
+            const bgVideoSource = container.querySelector('.project-bg-video source');
+
+            if (bgVideoSource) {
+                modalVideo.src = bgVideoSource.src;
+                videoModal.classList.add('active');
+                modalVideo.play().catch(err => console.log("Autoplay prevented:", err));
+            }
+        });
+    });
+
+    // Function to close modal and stop video
+    function closeVideoModal() {
+        videoModal.classList.remove('active');
+        modalVideo.pause();
+        modalVideo.src = ''; // Clear source so it stops downloading/playing in background
+    }
+
+    // Close on button click
+    if(closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeVideoModal);
+    }
+
+    // Close when clicking the background (outside the video)
+    if(videoModal) {
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+    }
+});

@@ -241,7 +241,9 @@
                                 <span>Simulator-Survivor</span>
                             </div>
                         </div>
-                        <div class="project-bg">🌑</div>
+                        <video class="project-bg-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -293,7 +295,9 @@
                                 <span>Multiplayer - FPS</span>
                             </div>
                         </div>
-                        <div class="project-bg">🔫</div>
+                        <video class="project-bg-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/synced_rush_clip.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -342,7 +346,9 @@
                                 <span>Game Jam Project</span>
                             </div>
                         </div>
-                        <div class="project-bg">🏠</div>
+                        <video class="project-bg-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -395,7 +401,9 @@
                                 <span>First Group Project</span>
                             </div>
                         </div>
-                        <div class="project-bg">🤖</div>
+                        <video class="project-bg-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -450,7 +458,9 @@
                                 <span>First Project</span>
                             </div>
                         </div>
-                        <div class="project-bg">📦</div>
+                        <video class="project-bg-video" autoplay muted loop playsinline>
+                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -568,6 +578,13 @@
         </div>
     </footer>
     <script src="script.js"></script>
+
+    <div id="video-modal" class="video-modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-content">
+            <video id="modal-video" controls autoplay loop playsinline></video>
+        </div>
+    </div>
 </body>
 
 </html>
