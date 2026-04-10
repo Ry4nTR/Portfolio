@@ -5,586 +5,590 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rostyslav Terletskyy - Game Programmer</title>
+
+    <!-- Font Awesome icon library (used throughout for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">&lt;/Game Programmer&gt;</div>
-            <button class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="typing-container">
-                    <h1>Rostyslav Terletskyy</h1>
-                    <div class="subtitle">
-                        <span class="typing-text"></span>
-                        <span class="cursor">|</span>
+<!-- =========================================
+     1. NAVIGATION
+     ========================================= -->
+<nav>
+    <div class="container">
+        <!-- Brand logo / identity -->
+        <div class="logo">&lt;/Game Programmer&gt;</div>
+
+        <!-- Hamburger button shown on mobile (toggled via JS) -->
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+            <!-- Main navigation links — data-translate keys map to the translations object in script.js -->
+            <li><a href="#home" data-translate="nav_home">Home</a></li>
+            <li><a href="#about" data-translate="nav_about">About</a></li>
+            <li><a href="#projects" data-translate="nav_projects">Projects</a></li>
+            <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+
+            <!-- Language switcher dropdown -->
+            <li class="lang-dropdown">
+                <button class="lang-dropbtn">
+                    <i class="fas fa-globe"></i>
+                    <!-- Current language label updated dynamically by JS -->
+                    <span id="current-lang-text">EN</span>
+                    <i class="fas fa-chevron-down ms-1"></i>
+                </button>
+                <!-- Dropdown options — data-lang triggers the language switch in script.js -->
+                <div class="lang-dropdown-content">
+                    <a href="#" data-lang="en">🇬🇧 English</a>
+                    <a href="#" data-lang="it">🇮🇹 Italiano</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- =========================================
+     2. HERO SECTION
+     ========================================= -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+
+            <!-- Typing animation container: JS writes into .typing-text character by character -->
+            <div class="typing-container">
+                <h1>Rostyslav Terletskyy</h1>
+                <div class="subtitle">
+                    <span class="typing-text"></span>
+                    <!-- Blinking cursor synced with the typing animation -->
+                    <span class="cursor">|</span>
+                </div>
+            </div>
+
+            <!-- Short bio paragraph — translatable -->
+            <p class="description" data-translate="hero_desc">
+                Game programmer with experience in Unity and Unreal Engine. I enjoy solving technical challenges,
+                optimizing performance, and collaborating with teams to build engaging games. Always learning and
+                adapting to new technologies.
+            </p>
+
+            <!-- CTA buttons row -->
+            <div class="hero-buttons">
+                <!-- Scroll to projects section -->
+                <a href="#projects" class="cta-button primary" data-translate="btn_view_work">View My Work</a>
+
+                <!-- Resume download dropdown (two language versions) -->
+                <div class="resume-dropdown">
+                    <button class="cta-button secondary dropdown-toggle">
+                        <i class="fas fa-download"></i> <span data-translate="btn_resume">Download Resume</span> <i class="fas fa-chevron-down ms-1"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="assets/CV GameProgrammer ENG.pdf" download="CV GameProgrammer ENG.pdf">
+                            🇬🇧 English
+                        </a>
+                        <a href="assets/CV GameProgrammer ITA.pdf" download="CV GameProgrammer ITA.pdf">
+                            🇮🇹 Italiano
+                        </a>
                     </div>
                 </div>
-                <p class="description">
-                    Game programmer with experience in Unity and Unreal Engine. I enjoy solving technical challenges,
-                    optimizing performance, and collaborating with teams to build engaging games. Always learning and
-                    adapting to new technologies.
+
+                <!-- External profile icon buttons -->
+                <a href="https://github.com/Ry4nTR" target="_blank" class="icon-button" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://ry4ntr.itch.io/" target="_blank" class="icon-button" title="Itch.io">
+                    <i class="fab fa-itch-io"></i>
+                </a>
+            </div>
+
+            <!-- Stats row — data-count values are animated by animateCounters() in script.js -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label" data-translate="stat_projects">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-label" data-translate="stat_exp">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label" data-translate="stat_tech">Technologies Mastered</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side: video reel + decorative code block -->
+        <div class="hero-visual">
+
+            <!-- Video reel — JS cycles between .reel-video elements every 6 seconds -->
+            <div class="video-reel-container">
+                <!-- First video starts as active (visible) -->
+                <video class="reel-video active" muted loop playsinline preload="auto">
+                    <source src="assets/videos/synced_rush_clip.mp4" type="video/mp4">
+                </video>
+                <!-- Second video starts hidden, fades in on rotation -->
+                <video class="reel-video" muted loop playsinline preload="auto">
+                    <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- Decorative code snippet — each line fades in via CSS animation delays -->
+            <div class="code-animation">
+                <div class="code-line">
+                    <span class="code-keyword">class</span>
+                    <span class="code-class">GameDeveloper</span>
+                    <span class="code-bracket">{</span>
+                </div>
+                <div class="code-line indent">
+                    <span class="code-method">createAwesome</span><span class="code-bracket">()</span>
+                    <span class="code-bracket">{</span>
+                </div>
+                <div class="code-line indent2">
+                    <span class="code-keyword">return</span>
+                    <span class="code-string">"Innovation"</span><span class="code-semicolon">;</span>
+                </div>
+                <div class="code-line indent">
+                    <span class="code-bracket">}</span>
+                </div>
+                <div class="code-line">
+                    <span class="code-bracket">}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================
+     3. ABOUT SECTION
+     ========================================= -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title fade-in" data-translate="about_title">About Me</h2>
+        <div class="about-content fade-in">
+
+            <!-- Left column: bio text and achievement badges -->
+            <div class="about-text">
+                <p data-translate="about_p1">
+                    I am a dedicated Game Programmer with a profound passion for crafting immersive and innovative
+                    digital experiences. My journey in game development has fortified my expertise across various
+                    programming languages and leading game engines, enabling me to translate complex creative
+                    visions into tangible, interactive realities.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="cta-button primary">View My Work</a>
-                    <a href="assets/Rostyslav_Terletskyy_Resume.pdf" download="Rostyslav_Terletskyy_Resume.pdf" class="cta-button secondary">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                    
-                    <a href="https://github.com/Ry4nTR" target="_blank" class="icon-button" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://ry4ntr.itch.io/" target="_blank" class="icon-button" title="Itch.io">
-                        <i class="fab fa-itch-io"></i>
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="4">0</div>
-                        <div class="stat-label">Projects Completed</div>
+                <p data-translate="about_p2">
+                    I thrive on tackling intricate technical challenges, constantly pushing the boundaries of what's
+                    possible in game performance optimization and the implementation of sophisticated gameplay
+                    mechanics. My approach is characterized by a blend of technical acumen, strategic thinking, and
+                    a natural inclination towards leadership in collaborative team environments.
+                </p>
+
+                <!-- Quick-glance badges summarising key traits -->
+                <div class="achievement-badges">
+                    <div class="badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>ITS Student</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="3">0</div>
-                        <div class="stat-label">Years Experience</div>
+                    <div class="badge">
+                        <i class="fas fa-fire"></i>
+                        <span>UE Passionate</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="5">0</div>
-                        <div class="stat-label">Technologies Mastered</div>
+                    <div class="badge">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Problem Solver</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
 
-                <div class="video-reel-container">
-                    <video class="reel-video active" muted loop playsinline preload="auto">
-                        <source src="assets/videos/synced_rush_clip.mp4" type="video/mp4">
-                    </video>
-                    <video class="reel-video" muted loop playsinline preload="auto">
+            <!-- Right column: skill bars and engine icons -->
+            <div class="skills">
+
+                <!-- Programming language skill bars — data-skill drives the CSS width animation -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h4>Programming Languages</h4>
+                    </div>
+                    <div class="skill-bars">
+                        <div class="skill-bar"><span>C#</span><div class="progress"><div class="progress-fill" data-skill="75"></div></div></div>
+                        <div class="skill-bar"><span>C++</span><div class="progress"><div class="progress-fill" data-skill="70"></div></div></div>
+                        <div class="skill-bar"><span>Java</span><div class="progress"><div class="progress-fill" data-skill="50"></div></div></div>
+                        <div class="skill-bar"><span>HTML</span><div class="progress"><div class="progress-fill" data-skill="85"></div></div></div>
+                        <div class="skill-bar"><span>CSS</span><div class="progress"><div class="progress-fill" data-skill="70"></div></div></div>
+                        <div class="skill-bar"><span>JavaScript</span><div class="progress"><div class="progress-fill" data-skill="70"></div></div></div>
+                    </div>
+                </div>
+
+                <!-- Game engine icons -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h4>Game Engines</h4>
+                    </div>
+                    <div class="engine-icons">
+                        <div class="engine-item">
+                            <div class="engine-icon"><img src="assets/icons/unity-logo.png" alt="Unity"></div>
+                            <span>Unity</span>
+                        </div>
+                        <div class="engine-item">
+                            <div class="engine-icon"><img src="assets/icons/unreal-logo.png" alt="Unreal"></div>
+                            <span>Unreal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================
+     4. PROJECTS SECTION
+     ========================================= -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title fade-in" data-translate="projects_title">Featured Projects</h2>
+        <div class="projects-grid fade-in">
+
+            <!-- ---- Project Card 1: Alpha Exilemet ---- -->
+            <div class="project-card">
+                <!-- Clicking the image area opens the video modal (handled in script.js) -->
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-preview">
+                            <i class="fas fa-play-circle"></i>
+                            <span data-translate="proj1_preview">Simulator-Survivor</span>
+                        </div>
+                    </div>
+                    <!-- Background video plays silently in the card thumbnail -->
+                    <video class="project-bg-video" autoplay muted loop playsinline>
                         <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
                     </video>
                 </div>
-
-                <div class="code-animation">
-                    <div class="code-line">
-                        <span class="code-keyword">class</span>
-                        <span class="code-class">GameDeveloper</span>
-                        <span class="code-bracket">{</span>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Alpha Exilemet</h3>
+                        <div class="project-status">
+                            <span class="status-badge in-progress" data-translate="proj1_status">In-progress</span>
+                        </div>
                     </div>
-                    <div class="code-line indent">
-                        <span class="code-method">createAwesome</span><span class="code-bracket">()</span>
-                        <span class="code-bracket">{</span>
-                    </div>
-                    <div class="code-line indent2">
-                        <span class="code-keyword">return</span>
-                        <span class="code-string">"Innovation"</span><span class="code-semicolon">;</span>
-                    </div>
-                    <div class="code-line indent">
-                        <span class="code-bracket">}</span>
-                    </div>
-                    <div class="code-line">
-                        <span class="code-bracket">}</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="about-content fade-in">
-                <div class="about-text">
-                    <p>
-                        I am a dedicated Game Programmer with a profound passion for crafting immersive and innovative
-                        digital experiences. My journey in game development has fortified my expertise across various
-                        programming languages and leading game engines, enabling me to translate complex creative
-                        visions into tangible, interactive realities.
+                    <p class="project-description" data-translate="proj1_desc">
+                        A sci-fi survival exploration game where a crashed astronaut gathers resources,
+                        manages oxygen, and repairs their spaceship to escape an alien planet.
                     </p>
-                    <p>
-                        I thrive on tackling intricate technical challenges, constantly pushing the boundaries of what's
-                        possible in game performance optimization and the implementation of sophisticated gameplay
-                        mechanics. My approach is characterized by a blend of technical acumen, strategic thinking, and
-                        a natural inclination towards leadership in collaborative team environments. I am committed to
-                        continuous learning, always eager to integrate emerging technologies and refine my skill set to
-                        deliver exceptional results.
+                    <!-- Project metadata: duration, team size, highlight -->
+                    <div class="project-metrics">
+                        <div class="metric"><i class="fas fa-clock"></i><span>2 <span data-translate="time_months">Months</span></span></div>
+                        <div class="metric"><i class="fas fa-users"></i><span data-translate="team_solo">Solo Project</span></div>
+                        <div class="metric"><i class="fa-solid fa-fire"></i><span data-translate="proj1_type">C++ Project</span></div>
+                    </div>
+                    <!-- Tech stack tags -->
+                    <div class="project-tech">
+                        <span class="tech-tag">Unreal Engine 5.7</span>
+                        <span class="tech-tag">BP & C++</span>
+                        <span class="tech-tag">PC</span>
+                    </div>
+                    <!-- External links -->
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> <span data-translate="link_view">View Project</span></a>
+                        <a href="https://github.com/RT-Organization/Alpha-Exilemet" class="project-link"><i class="fab fa-github"></i> <span data-translate="link_source">Source Code</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- Project Card 2: Synced Rush ---- -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-preview">
+                            <i class="fas fa-play-circle"></i>
+                            <span data-translate="proj2_preview">Multiplayer - FPS</span>
+                        </div>
+                    </div>
+                    <video class="project-bg-video" autoplay muted loop playsinline>
+                        <source src="assets/videos/synced_rush_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Synced Rush</h3>
+                        <div class="project-status">
+                            <span class="status-badge completed" data-translate="proj2_status">MVP Completed</span>
+                        </div>
+                    </div>
+                    <p class="project-description" data-translate="proj2_desc">
+                        A fast-paced multiplayer FPS where players compete in 1v1 and 2v2 matches using dynamic
+                        movement abilities and responsive shooting mechanics.
                     </p>
-                    <div class="achievement-badges">
-                        <div class="badge">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>ITS Student</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-fire"></i>
-                            <span>UE Passionate</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Problem Solver</span>
-                        </div>
+                    <div class="project-metrics">
+                        <div class="metric"><i class="fas fa-clock"></i><span>3 <span data-translate="time_months">Months</span></span></div>
+                        <div class="metric"><i class="fas fa-users"></i><span>3 <span data-translate="team_members">Members</span></span></div>
                     </div>
-                </div>
-                <div class="skills">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <i class="fas fa-code"></i>
-                            <h4>Programming Languages</h4>
-                        </div>
-                        <div class="skill-bars">
-                            <div class="skill-bar">
-                                <span>C#</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar">
-                                <span>C++</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar">
-                                <span>Java</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar">
-                                <span>HTML</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar">
-                                <span>CSS</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar">
-                                <span>JavaScript</span>
-                                <div class="progress">
-                                    <div class="progress-fill" data-skill="70"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Multiplayer</span>
+                        <span class="tech-tag">PC</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <i class="fas fa-gamepad"></i>
-                            <h4>Game Engines</h4>
-                        </div>
-                        <div class="engine-icons">
-                            <div class="engine-item">
-                                <div class="engine-icon">
-                                    <img src="assets/icons/unity-logo.png" alt="Unity">
-                                </div>
-                                <span>Unity</span>
-                            </div>
-                            <div class="engine-item">
-                                <div class="engine-icon">
-                                    <img src="assets/icons/unreal-logo.png" alt="Unreal">
-                                </div>
-                                <span>Unreal</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <i class="fas fa-brain"></i>
-                            <h4>Specializations</h4>
-                        </div>
-                        <p>Gameplay Programming, Unity & Unreal Development, Game Designer</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <i class="fas fa-tools"></i>
-                            <h4>Tools & Platforms</h4>
-                        </div>
-                        <p>Git, Visual Studio, Rider, Blueprint, Blender</p>
+                    <div class="project-links">
+                        <a href="https://ry4ntr.itch.io/synced-rush" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> <span data-translate="link_view">View Project</span>
+                        </a>
+                        <a href="https://github.com/RT-Organization/Synced-Rush" class="project-link">
+                            <i class="fab fa-github"></i> <span data-translate="link_source">Source Code</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid fade-in">
-
-                <!-- Alpha Exilemet -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-preview">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Simulator-Survivor</span>
-                            </div>
-                        </div>
-                        <video class="project-bg-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Alpha Exilemet</h3>
-                            <div class="project-status">
-                                <span class="status-badge in-progress">In-progress</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A sci-fi survival exploration game where a crashed astronaut gathers resources, 
-                            manages oxygen, and repairs their spaceship to escape an alien planet.
-                        </p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>2 Months</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>Solo Project</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fa-solid fa-fire"></i>
-                                <span>C++ Project</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unreal Engine 5.7</span>
-                            <span class="tech-tag">BP & C++</span>
-                            <span class="tech-tag">PC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                            <a href="https://github.com/RT-Organization/Alpha-Exilemet" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+            <!-- ---- Project Card 3: Stay Room ---- -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-preview">
+                            <i class="fas fa-eye"></i>
+                            <span data-translate="proj3_preview">Game Jam Project</span>
                         </div>
                     </div>
+                    <video class="project-bg-video" autoplay muted loop playsinline>
+                        <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                    </video>
                 </div>
-                
-                <!-- Synced Rush -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-preview">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Multiplayer - FPS</span>
-                            </div>
-                        </div>
-                        <video class="project-bg-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/synced_rush_clip.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Synced Rush</h3>
-                            <div class="project-status">
-                                <span class="status-badge completed">MVP Completed</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A fast-paced multiplayer FPS where players compete in 1v1 and 2v2 matches using dynamic 
-                            movement abilities and responsive shooting mechanics.
-                        </p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>3 Months</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>3 Members</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Multiplayer</span>
-                            <span class="tech-tag">PC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ry4ntr.itch.io/synced-rush" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                            <a href="https://github.com/RT-Organization/Synced-Rush" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Stay Room</h3>
+                        <div class="project-status">
+                            <span class="status-badge completed" data-translate="proj3_status">Complete</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Stay Room -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-preview">
-                                <i class="fas fa-eye"></i>
-                                <span>Game Jam Project</span>
-                            </div>
-                        </div>
-                        <video class="project-bg-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
-                        </video>
+                    <p class="project-description" data-translate="proj3_desc">
+                        A chaotic management game built in a 2-day Game Jam where players modify houserooms in
+                        real time to satisfy the needs of visiting NPC tenants.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric"><i class="fas fa-clock"></i><span>2 <span data-translate="time_days">Days</span></span></div>
+                        <div class="metric"><i class="fas fa-users"></i><span>6 <span data-translate="team_members">Members</span></span></div>
+                        <div class="metric"><i class="fa-solid fa-fire"></i><span data-translate="proj3_type">AI programming</span></div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Stay Room</h3>
-                            <div class="project-status">
-                                <span class="status-badge completed">Complete</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A chaotic management game built in a 2-day Game Jam where players modify houserooms in 
-                            real time to satisfy the needs of visiting NPC tenants.
-                        </p>
-                            <div class="project-metrics">
-                                <div class="metric">
-                                    <i class="fas fa-clock"></i>
-                                    <span>2 Days</span>
-                                </div>
-                                <div class="metric">
-                                    <i class="fas fa-users"></i>
-                                    <span>6 Members</span>
-                                </div>
-                                <div class="metric">
-                                    <i class="fa-solid fa-fire"></i>
-                                    <span>AI programming</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">GitHub</span>
-                            <span class="tech-tag">PC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://zankysh.itch.io/stay-room" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                            <a href="https://github.com/Ry4nTR/Stay-Room" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">PC</span>
                     </div>
-                </div>
-
-                <!-- Project ARK -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-preview">
-                                <i class="fas fa-eye"></i>
-                                <span>First Group Project</span>
-                            </div>
-                        </div>
-                        <video class="project-bg-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
-                        </video>
+                    <div class="project-links">
+                        <a href="https://zankysh.itch.io/stay-room" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> <span data-translate="link_view">View Project</span>
+                        </a>
+                        <a href="https://github.com/Ry4nTR/Stay-Room" class="project-link">
+                            <i class="fab fa-github"></i> <span data-translate="link_source">Source Code</span>
+                        </a>
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Project ARK</h3>
-                            <div class="project-status">
-                                <span class="status-badge completed">Complete</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A sci-fi narrative adventure with psychological elements set on a spaceship in distress. The
-                            player is a volunteer in a human-machine experiment who must solve puzzles, interact with a
-                            mysterious AI, and make crucial choices as they uncover the truth about the accident on
-                            board.
-                        </p>
-                            <div class="project-metrics">
-                                <div class="metric">
-                                    <i class="fas fa-clock"></i>
-                                    <span>2 Months</span>
-                                </div>
-                                <div class="metric">
-                                    <i class="fas fa-users"></i>
-                                    <span>4 Members</span>
-                                </div>
-                                <div class="metric">
-                                    <i class="fa-solid fa-fire"></i>
-                                    <span>HDRP Project</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">GitHub</span>
-                            <span class="tech-tag">PC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ry4ntr.itch.io/project-ark" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                            <a href="https://github.com/Ry4nTR/ProjectWork" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- La scatola del nonno -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-preview">
-                                <i class="fas fa-play-circle"></i>
-                                <span>First Project</span>
-                            </div>
-                        </div>
-                        <video class="project-bg-video" autoplay muted loop playsinline>
-                            <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">La scatola del nonno</h3>
-                            <div class="project-status">
-                                <span class="status-badge completed">Completed</span>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            A narrative adventure about childhood and memory, set in post-war Italy. Through the
-                            grandfather’s objects, the player gradually discovers the weight of war behind the stories
-                            of an old veteran.
-                        </p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>3 Weeks</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>Solo Project</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fa-solid fa-fire"></i>
-                                <span>First Project</span>
-                            </div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">PC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ry4ntr.itch.io/la-scatola-del-nonno" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> View Project
-                            </a>
-                            <a href="https://github.com/Ry4nTR/La-scatola-del-nonno" class="project-link">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <div class="contact-content fade-in">
-                <p>
-                    I'm always open to discussing new opportunities, collaborations, or simply
-                    connecting with fellow game developers. Feel free to reach out!
-                </p>
-                <div class="contact-info">
-                    <!-- Your existing contact items (email, LinkedIn, etc.) -->
-                </div>
-
-                <!-- EmailJS Contact Form -->
-                <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" name="from_name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="reply_to" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Add this right before </body> -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS
-        emailjs.init('aKwa51w0joXLCCtYv');
+            <!-- ---- Project Card 4: Project ARK ---- -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-preview">
+                            <i class="fas fa-eye"></i>
+                            <span data-translate="proj4_preview">First Group Project</span>
+                        </div>
+                    </div>
+                    <video class="project-bg-video" autoplay muted loop playsinline>
+                        <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Project ARK</h3>
+                        <div class="project-status">
+                            <span class="status-badge completed" data-translate="proj4_status">Complete</span>
+                        </div>
+                    </div>
+                    <p class="project-description" data-translate="proj4_desc">
+                        A sci-fi narrative adventure with psychological elements set on a spaceship in distress. The
+                        player is a volunteer in a human-machine experiment who must solve puzzles, interact with a
+                        mysterious AI, and make crucial choices as they uncover the truth about the accident on
+                        board.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric"><i class="fas fa-clock"></i><span>2 <span data-translate="time_months">Months</span></span></div>
+                        <div class="metric"><i class="fas fa-users"></i><span>4 <span data-translate="team_members">Members</span></span></div>
+                        <div class="metric"><i class="fa-solid fa-fire"></i><span data-translate="proj4_type">HDRP Project</span></div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">PC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ry4ntr.itch.io/project-ark" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> <span data-translate="link_view">View Project</span>
+                        </a>
+                        <a href="https://github.com/Ry4nTR/ProjectWork" class="project-link">
+                            <i class="fab fa-github"></i> <span data-translate="link_source">Source Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
+            <!-- ---- Project Card 5: La scatola del nonno ---- -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-preview">
+                            <i class="fas fa-play-circle"></i>
+                            <span data-translate="proj5_preview">First Project</span>
+                        </div>
+                    </div>
+                    <video class="project-bg-video" autoplay muted loop playsinline>
+                        <source src="assets/videos/alpha_exilemet_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">La scatola del nonno</h3>
+                        <div class="project-status">
+                            <span class="status-badge completed" data-translate="proj5_status">Completed</span>
+                        </div>
+                    </div>
+                    <p class="project-description" data-translate="proj5_desc">
+                        A narrative adventure about childhood and memory, set in post-war Italy. Through the
+                        grandfather's objects, the player gradually discovers the weight of war behind the stories
+                        of an old veteran.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric"><i class="fas fa-clock"></i><span>3 <span data-translate="time_weeks">Weeks</span></span></div>
+                        <div class="metric"><i class="fas fa-users"></i><span data-translate="team_solo">Solo Project</span></div>
+                        <div class="metric"><i class="fa-solid fa-fire"></i><span data-translate="proj5_type">First Project</span></div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">PC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ry4ntr.itch.io/la-scatola-del-nonno" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> <span data-translate="link_view">View Project</span>
+                        </a>
+                        <a href="https://github.com/Ry4nTR/La-scatola-del-nonno" class="project-link">
+                            <i class="fab fa-github"></i> <span data-translate="link_source">Source Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-            // Silent submission (no alerts)
-            emailjs.sendForm('service_t5w9rmq', 'template_zxf9m8g', this)
-                .then(() => {
-                    this.reset();
-                    const confirmation = document.createElement('p');
-                    confirmation.className = 'form-confirmation visible';
-                    confirmation.textContent = '✓ Message sent successfully';
-                    this.appendChild(confirmation);
-                    setTimeout(() => confirmation.remove(), 3000);
-                })
-                .catch(err => {
-                    console.error('Email failed to send:', err);
-                });
-        });
-    </script>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Rostyslav Terleskyy. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-
-    <div id="video-modal" class="video-modal">
-        <button class="close-modal">&times;</button>
-        <div class="modal-content">
-            <video id="modal-video" controls autoplay loop playsinline></video>
         </div>
     </div>
-</body>
+</section>
 
+
+<!-- =========================================
+     5. CONTACT SECTION
+     ========================================= -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title fade-in" data-translate="contact_title">Get In Touch</h2>
+        <div class="contact-content fade-in">
+            <p data-translate="contact_desc">
+                I'm always open to discussing new opportunities, collaborations, or simply
+                connecting with fellow game developers. Feel free to reach out!
+            </p>
+
+            <!-- Placeholder for optional contact info cards (currently empty) -->
+            <div class="contact-info">
+            </div>
+
+            <!-- Contact form — submission handled by EmailJS (initialised below) -->
+            <div class="contact-form-container">
+                <form id="contact-form" class="contact-form">
+                    <!-- name / from_name maps to the EmailJS template variable -->
+                    <div class="form-group">
+                        <input type="text" id="name" name="from_name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <!-- email / reply_to maps to the EmailJS template variable -->
+                    <div class="form-group">
+                        <input type="email" id="email" name="reply_to" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <!-- message body -->
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================
+     6. SCRIPTS
+     ========================================= -->
+
+<!-- EmailJS SDK — must be loaded before the inline init block below -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    // Initialise EmailJS with the public key, then wire up the contact form
+    emailjs.init('aKwa51w0joXLCCtYv');
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Send the form data using the configured service and template IDs
+        emailjs.sendForm('service_t5w9rmq', 'template_zxf9m8g', this)
+            .then(() => {
+                this.reset();
+                // Show a temporary success message beneath the form
+                const confirmation = document.createElement('p');
+                confirmation.className = 'form-confirmation visible';
+                confirmation.textContent = '✓ Message sent successfully';
+                this.appendChild(confirmation);
+                setTimeout(() => confirmation.remove(), 3000);
+            })
+            .catch(err => {
+                console.error('Email failed to send:', err);
+            });
+    });
+</script>
+
+<!-- =========================================
+     7. FOOTER
+     ========================================= -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Rostyslav Terleskyy. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Main JS — loaded last so the DOM is fully available -->
+<script src="script.js"></script>
+
+
+<!-- =========================================
+     8. VIDEO MODAL
+     ========================================= -->
+<!-- Full-screen modal that plays a project clip when a project thumbnail is clicked -->
+<div id="video-modal" class="video-modal">
+    <!-- Close button — wired to closeVideoModal() in script.js -->
+    <button class="close-modal">&times;</button>
+    <div class="modal-content">
+        <!-- src is set dynamically by JS when the modal opens -->
+        <video id="modal-video" controls autoplay loop playsinline></video>
+    </div>
+</div>
+
+</body>
 </html>
