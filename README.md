@@ -65,11 +65,18 @@ class GameDeveloper {
 
 ## 📊 GitHub Stats
 
-<img src="https://github-readme-stats-seven-kappa-16.vercel.app/api?username=Ry4nTR&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&icon_color=a855f7&text_color=e0e0e0" alt="GitHub Stats" />
+<table>
+  <tr>
+    <td>
+      <img src="https://github-readme-stats-seven-kappa-16.vercel.app/api?username=Ry4nTR&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&icon_color=a855f7&text_color=e0e0e0&rank_icon=github" width="400" alt="GitHub Stats" />
+    </td>
+    <td>
+      <img src="https://github-readme-stats-seven-kappa-16.vercel.app/api/top-langs/?username=Ry4nTR&layout=compact&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&text_color=e0e0e0&langs_count=6" width="400" alt="Top Languages" />
+    </td>
+  </tr>
+</table>
 
-<img src="https://github-readme-stats-seven-kappa-16.vercel.app/api/top-langs/?username=Ry4nTR&layout=compact&theme=midnight-purple&hide_border=true&bg_color=1a1a1f&title_color=c084fc&text_color=e0e0e0" alt="Top Languages" />
-
-<img src="https://streak-stats.demolab.com?user=Ry4nTR&theme=midnight-purple&hide_border=true&background=1a1a1f&stroke=a855f7&ring=c084fc&fire=c084fc&currStreakLabel=c084fc&sideLabels=e0e0e0&dates=e0e0e0" alt="GitHub Streak" />
+<img src="https://streak-stats.demolab.com?user=Ry4nTR&theme=midnight-purple&hide_border=true&background=1a1a1f&stroke=a855f7&ring=c084fc&fire=c084fc&currStreakLabel=c084fc&sideLabels=e0e0e0&dates=e0e0e0&card_width=820" alt="GitHub Streak" />
 
 </div>
 
