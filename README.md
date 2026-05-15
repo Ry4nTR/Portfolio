@@ -11,7 +11,7 @@
 
 ### `< /Game Programmer >`
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-ry4ntr.github.io-a855f7?style=for-the-badge&labelColor=1a1a1f)]([https://ry4ntr.github.io/Portfolio/](https://ry4ntr.github.io/Ry4nTR/))
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-ry4ntr.github.io-a855f7?style=for-the-badge&labelColor=1a1a1f)](https://ry4ntr.github.io/Ry4nTR/)
 [![Itch.io](https://img.shields.io/badge/🎮_Itch.io-ry4ntr-fa5c5c?style=for-the-badge&labelColor=1a1a1f)](https://ry4ntr.itch.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0a66c2?style=for-the-badge&logo=linkedin&labelColor=1a1a1f)](https://www.linkedin.com/in/rostyslav-terletskyy-275189357/)
 
